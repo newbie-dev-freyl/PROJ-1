@@ -1,1 +1,12 @@
 @use './abstract/index' as *;
+
+
+body {
+    background: plum;
+}
+
+h1 {
+    font-size: 5em;
+    font-weight: bold;
+    font-family: monospace;
+}
