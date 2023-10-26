@@ -6,3 +6,8 @@
         @content;
     } 
 }
+
+@mixin square($wh) {
+    height: $wh;
+    width: $wh;
+}

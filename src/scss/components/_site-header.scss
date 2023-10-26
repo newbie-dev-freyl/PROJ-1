@@ -1,0 +1,10 @@
+.site-header {
+    background: hsl(0, 0%, 78%);
+    padding-block: 1rem;
+}
+
+.site-header__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

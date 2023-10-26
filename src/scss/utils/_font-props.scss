@@ -1,11 +1,27 @@
-@use '../abstract/' as *;
+@use '../abstracts/' as *;
 
 @each $prop, $data in $font-props {
+    @if $prop == "family" {
+        @each $key, $value in $data {
+            .ff-#{$key} {
+                font-size: var(--ff-#{$key});
+            } 
+        }
+    }
+
     @if $prop == "size" {
         @each $key, $value in $data {
             .fs-#{$key} {
                 font-size: var(--fs-#{$key});
-            }
+            } 
+        }
+    }
+
+    @if $prop == "weight" {
+        @each $key, $value in $data {
+            .fw-#{$key} {
+                font-size: var(--fw-#{$key});
+            } 
         }
     }
 }
