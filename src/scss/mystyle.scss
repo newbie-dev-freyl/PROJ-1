@@ -1,4 +1,7 @@
 @use './abstract/index' as *;
+@use './base/index' as *;
+@use './utils/index' as *;
+@use './layouts/index' as *;
 
 
 body {
@@ -6,7 +9,9 @@ body {
 }
 
 h1 {
-    font-size: 5em;
     font-weight: bold;
-    font-family: monospace;
+    font-family: var(--ff-primary);
 }
+
+
+

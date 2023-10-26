@@ -1,0 +1,11 @@
+@use '../abstract/' as *;
+
+@each $prop, $data in $font-props {
+    @if $prop == "size" {
+        @each $key, $value in $data {
+            .fs-#{$key} {
+                font-size: var(--fs-#{$key});
+            }
+        }
+    }
+}
