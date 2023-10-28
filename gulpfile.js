@@ -9,7 +9,7 @@ const browserSync = require('browser-sync').create();
 function scssTask() {
     return src('src/scss/mystyle.scss', { sourcemaps: true })
     .pipe(sass())
-    .pipe(postCss([cssNano()]))
+    //.pipe(postCss([cssNano()]))
     .pipe(dest('dist', { sourcemaps: '.' }));
 }
 
