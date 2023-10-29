@@ -8,3 +8,14 @@
         @content;
     }
 }
+
+@mixin square($wh) {
+    width: $wh;
+    height: $wh;
+}
+
+@mixin flex-base($gap: 0) {
+    display: flex;
+    align-items: center;
+    gap: $gap;
+}

@@ -1,0 +1,19 @@
+@use '../abstracts/' as *;
+
+.header {
+    background: plum;
+    position: relative;
+    padding-block: var(--size-2);
+
+    img {
+        @include square(80px);
+        object-fit: contain;
+        aspect-ratio: 1/1;
+        overflow: hidden;
+    }
+}
+
+.header__inner {
+    @include flex-base();
+    justify-content: space-between;
+}

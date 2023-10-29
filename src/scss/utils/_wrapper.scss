@@ -1,7 +1,8 @@
 .wrapper {
-    --padding: var(--size-6);
+    --padding: 2rem;
     --max-width: 64em;
 
+    // position: relative;
     width: min(100% - var(--padding), var(--max-width));
     margin-inline: auto;
 }
