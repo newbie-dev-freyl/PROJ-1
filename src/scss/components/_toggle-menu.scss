@@ -1,0 +1,39 @@
+@use '../abstracts/' as *;
+
+.toggle-menu {
+    position: absolute;
+    top: 100%;
+    @include hide-menu();
+    --transform: none;
+    --scale: 1;
+    scale: var(--scale);
+    transform: var(--transform) ;
+    transition: transform 200ms, opacity 150ms, scale 200ms; 
+
+
+    @include breakpoint(tablet) {
+        position: relative;
+        @include show-menu();
+        --transform: translate(0);
+    }
+}
+
+.toggle-menu[data-transform="top"] {
+    --transform: translateY(-5%);
+}
+
+.toggle-menu[data-transform="bottom"] {
+    --transform: translateY(5%);
+}
+
+.toggle-menu[data-transform="left"] {
+    --transform: translateX(-5%);
+}
+
+.toggle-menu[data-transform="right"] {
+    --transform: translateX(5%);
+}
+
+.toggle-menu[data-transform="scale"] {
+    --transform: scale(.9);
+}

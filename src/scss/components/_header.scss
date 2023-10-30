@@ -1,16 +1,22 @@
 @use '../abstracts/' as *;
 
 .header {
+    --pos: relative;
     background: plum;
-    position: relative;
+    position: var(--pos);
     padding-block: var(--size-2);
 
     img {
-        @include square(80px);
+        @include square(var(--size-7));
         object-fit: contain;
         aspect-ratio: 1/1;
         overflow: hidden;
     }
+}
+
+.header[data-type="sticky"] {
+    --pos: sticky;
+    top: 0;
 }
 
 .header__inner {

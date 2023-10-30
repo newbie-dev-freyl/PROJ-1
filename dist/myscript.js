@@ -1,2 +1,2 @@
-
+const toggleMenu=document.querySelector(".toggle-menu"),toggle=document.querySelector(".toggle"),toggleIcons=toggle.querySelectorAll("i");toggleIcons.forEach((e=>{e.addEventListener("click",(()=>{toggleIcons[0].classList.toggle("show-icon"),toggleIcons[1].classList.toggle("hide-icon"),toggleMenu.classList.toggle("show-menu")}))}));
 //# sourceMappingURL=myscript.js.map

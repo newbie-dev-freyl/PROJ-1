@@ -57,15 +57,18 @@ body {
 
 :root {
   --ff-primary: system-ui;
-  --ff-heading: montserrat, sans-serif;
+  --ff-heading: roboto, sans-serif;
   --ff-nav: rubik, sans-serif;
   --fs-300: clamp(0.8331rem, 0.8099rem + 0.1163vw, 0.9rem);
   --fs-400: clamp(1rem, 0.9565rem + 0.2174vw, 1.125rem);
   --fs-500: clamp(1.2rem, 1.1283rem + 0.3587vw, 1.4063rem);
   --fs-600: clamp(1.44rem, 1.3293rem + 0.5533vw, 1.7581rem);
   --fs-700: clamp(1.7281rem, 1.5649rem + 0.8163vw, 2.1975rem);
-  --fs-800: clamp(2.4881rem, 2.1594rem + 1.6435vw, 3.4331rem);
-  --fs-900: clamp(2.3325rem, 1.4058rem + 4.6337vw, 4.9969rem);
+  --fs-800: clamp(2.0738rem, 1.8396rem + 1.1707vw, 2.7469rem);
+  --fs-900: clamp(2.4881rem, 2.1594rem + 1.6435vw, 3.4331rem);
+  --fs-1000: clamp(1.9438rem, 1.3907rem + 2.7652vw, 3.5338rem);
+  --fs-1100: clamp(2.3325rem, 1.4058rem + 4.6337vw, 4.9969rem);
+  --fs-1200: clamp(2.7994rem, 1.3155rem + 7.4196vw, 7.0656rem);
   --fw-400: 400;
   --fw-500: 500;
   --fw-600: 600;
@@ -84,16 +87,22 @@ body {
 }
 
 .header {
+  --pos: relative;
   background: plum;
-  position: relative;
+  position: var(--pos);
   padding-block: var(--size-2);
 }
 .header img {
-  width: 80px;
-  height: 80px;
+  width: var(--size-7);
+  height: var(--size-7);
   object-fit: contain;
   aspect-ratio: 1/1;
   overflow: hidden;
+}
+
+.header[data-type=sticky] {
+  --pos: sticky;
+  top: 0;
 }
 
 .header__inner {
@@ -105,25 +114,23 @@ body {
 
 .nav-top {
   background: #a1b8e1;
-  position: absolute;
-  display: block;
-  top: 100%;
   width: 100%;
   padding-block: var(--size-4);
   padding-inline: var(--size-4);
-  margin-inline: -1rem;
+  margin-inline: calc(var(--size-6) * -1 / 2);
   z-index: 999;
   font-family: var(--ff-nav);
-  font-size: var(--fs-500);
+  font-size: var(--fs-400);
   text-transform: uppercase;
 }
 @media screen and (min-width: 56em) {
   .nav-top {
     background: transparent;
-    position: relative;
-    display: block;
     width: auto;
   }
+}
+.nav-top li:hover {
+  background: pink;
 }
 .nav-top a {
   color: currentColor;
@@ -132,9 +139,6 @@ body {
   align-items: center;
   gap: var(--size-1);
   justify-content: space-between;
-}
-.nav-top a:hover {
-  background: #f6a8a8;
 }
 .nav-top span {
   display: grid;
@@ -153,6 +157,85 @@ body {
     align-items: center;
     gap: var(--size-4);
   }
+}
+
+.toggle {
+  position: relative;
+  font-size: var(--fs-600);
+  cursor: pointer;
+  display: grid;
+}
+@media screen and (min-width: 56em) {
+  .toggle {
+    display: none;
+  }
+}
+.toggle > * {
+  pointer-events: auto;
+  transition: transform 300ms, opacity 200ms;
+}
+.toggle > *:first-child {
+  position: absolute;
+  place-self: center;
+  opacity: 0;
+  transform: rotate(90deg);
+}
+.toggle > *:first-child.show-icon {
+  opacity: 1;
+  transform: rotate(0);
+}
+.toggle > *:last-child {
+  opacity: 1;
+  transform: rotate(0deg);
+}
+.toggle > *:last-child.hide-icon {
+  opacity: 0;
+  transform: rotate(-90deg);
+}
+.toggle + *.show-menu {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.toggle-menu {
+  position: absolute;
+  top: 100%;
+  opacity: 0;
+  pointer-events: none;
+  --transform: none;
+  --scale: 1;
+  scale: var(--scale);
+  transform: var(--transform);
+  transition: transform 200ms, opacity 150ms, scale 200ms;
+}
+@media screen and (min-width: 56em) {
+  .toggle-menu {
+    position: relative;
+    opacity: 1;
+    pointer-events: auto;
+    --transform: translate(0);
+  }
+}
+
+.toggle-menu[data-transform=top] {
+  --transform: translateY(-5%);
+}
+
+.toggle-menu[data-transform=bottom] {
+  --transform: translateY(5%);
+}
+
+.toggle-menu[data-transform=left] {
+  --transform: translateX(-5%);
+}
+
+.toggle-menu[data-transform=right] {
+  --transform: translateX(5%);
+}
+
+.toggle-menu[data-transform=scale] {
+  --transform: scale(.9);
 }
 
 .even-columns {
@@ -212,6 +295,18 @@ body {
   font-size: var(--fs-900);
 }
 
+.fs-1000 {
+  font-size: var(--fs-1000);
+}
+
+.fs-1100 {
+  font-size: var(--fs-1100);
+}
+
+.fs-1200 {
+  font-size: var(--fs-1200);
+}
+
 .fw-400 {
   font-weight: var(--fw-400);
 }
@@ -241,7 +336,7 @@ body {
 }
 
 .wrapper {
-  --padding: 2rem;
+  --padding: var(--size-6);
   --max-width: 64em;
   width: min(100% - var(--padding), var(--max-width));
   margin-inline: auto;
@@ -252,17 +347,27 @@ body {
 }
 
 .heading-1 {
+  font-family: var(--ff-heading);
   font-size: var(--fs-900);
   font-weight: var(--fw-900);
 }
 
 .heading-2 {
+  font-family: var(--ff-heading);
   font-size: var(--fs-800);
-  font-weight: var(--fw-800);
+  font-weight: var(--fw-900);
 }
 
 .heading-3 {
+  font-family: var(--ff-heading);
   font-size: var(--fs-600);
-  font-weight: var(--fw-700);
+  font-weight: var(--fw-900);
+}
+
+.round {
+  background: white;
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+  overflow: hidden;
 }
 /*# sourceMappingURL=mystyle.css.map */

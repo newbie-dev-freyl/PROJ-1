@@ -1,1 +1,1 @@
-{"version":3,"file":"myscript.js","names":[],"sources":[],"mappings":""}
+{"version":3,"file":"myscript.js","names":["toggleMenu","document","querySelector","toggle","toggleIcons","querySelectorAll","forEach","icon","addEventListener","classList"],"sources":["myscript.js"],"mappings":"AAAA,MAAMA,WAAaC,SAASC,cAAc,gBAEpCC,OAASF,SAASC,cAAc,WAChCE,YAAcD,OAAOE,iBAAiB,KAG5CD,YAAYE,SAASC,IACjBA,EAAKC,iBAAiB,SAAS,KAC3BJ,YAAY,GAAGK,UAAUN,OAAO,aAChCC,YAAY,GAAGK,UAAUN,OAAO,aAChCH,WAAWS,UAAUN,OAAO,YAAY,GAC3C"}

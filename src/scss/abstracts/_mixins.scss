@@ -19,3 +19,13 @@
     align-items: center;
     gap: $gap;
 }
+
+@mixin hide-menu() {
+    opacity: 0;
+    pointer-events: none;
+}
+
+@mixin show-menu() {
+    opacity: 1;
+    pointer-events: auto;
+}

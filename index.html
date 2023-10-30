@@ -5,49 +5,64 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">    
         <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
         <link rel="stylesheet" href="dist/mystyle.css">
         <title>Document</title>
     </head>
     <body>
-        <header>
-            <div class="header">
+        <header class="header" data-type="sticky">
                 <div class="wrapper">
                     <div class="header__inner">
                         <div class="brand-logo | round">
-                            <img class="" src="./src/assets/images/logo-dilg-1.png" alt="">
+                            <img class="" src="./src/assets/images/brand-logo-1.png" alt="">
                         </div>
-                        <nav class="nav-top">
+                        <div class="toggle">
+                            <i class="bx bx-x"></i>
+                            <i class="bx bx-menu"></i>
+                        </div>
+                        <nav class="nav-top | toggle-menu" data-transform="bottom">
                             <ul class="nav-top__list" role="list">
-                                <li><a href="#" data-toggle="false">home
-                                    <span><i class="bx bx-chevron-down"></i></span>
+                                <li>
+                                    <a href="#" data-toggle="false">home
+                                        <span><i class="bx bx-chevron-down"></i></span>
                                     </a>
                                 </li>
-                                <li><a href="#" data-toggle="false">about
-                                    <span><i class="bx bx-chevron-down"></i></span>
+
+                                <li>
+                                    <a href="#" data-toggle="false">about
+                                        <span><i class="bx bx-chevron-down"></i></span>
                                     </a>
                                 </li>
-                                <li><a href="#" data-toggle="true">services
-                                    <span><i class="bx bx-chevron-down"></i></span>
+
+                                <li>
+                                    <a href="#" data-toggle="true">services
+                                        <span><i class="bx bx-chevron-down"></i></span>
+                                    </a>
+
+                                    <ul class="sub__list" role="list">
+                                        <li><a href="#"></a>Item 1</li>
+                                        <li><a href="#"></a>Item 2</li>
+                                        <li><a href="#"></a>Item 3</li>
+                                    </ul>
+                                </li>
+
+                                <li>
+                                    <a href="#" data-toggle="false">contacts
+                                        <span><i class="bx bx-chevron-down"></i></span>
                                     </a>
                                 </li>
-                                <li><a href="#" data-toggle="false">contacts
-                                    <span><i class="bx bx-chevron-down"></i></span>
+
+                                <li>
+                                    <a href="#" data-toggle="true">settings
+                                        <span><i class="bx bx-chevron-down"></i></span>
                                     </a>
                                 </li>
-                                <li><a href="#" data-toggle="true">settings
-                                    <span><i class="bx bx-chevron-down"></i></span>
-                                    </a>
-                                </li>
-                                
-                                
                             </ul>
                         </nav>
-                    </div>
-                </div>
-            </div>
+                    </div><!-- header__inner -->
+                </div><!-- wrapper -->
         </header>
         <section class="section">
             <div class="wrapper">
@@ -72,7 +87,7 @@
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam quae suscipit nobis natus sequi blanditiis illum distinctio iusto iste sapiente.</p>
                     </div>
                     <a href="#">CLick Me</a>
-                    <button class="heading-3">Me too!</button>
+                    <button class="heading-3">ME TOO!</button>
                 </div>
             </div>
         </section>

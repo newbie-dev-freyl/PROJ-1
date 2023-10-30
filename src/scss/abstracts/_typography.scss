@@ -2,7 +2,7 @@
 $font-prop: (
     family: (
         primary: "system-ui",
-        heading: "montserrat, sans-serif",
+        heading: "roboto, sans-serif",
         nav: "rubik, sans-serif",
     ),
 
@@ -12,11 +12,11 @@ $font-prop: (
         500: clamp(1.2rem, 1.1283rem + 0.3587vw, 1.4063rem),
         600: clamp(1.44rem, 1.3293rem + 0.5533vw, 1.7581rem),
         700: clamp(1.7281rem, 1.5649rem + 0.8163vw, 2.1975rem),
-        // 800: clamp(2.0738rem, 1.8396rem + 1.1707vw, 2.7469rem),
-        800: clamp(2.4881rem, 2.1594rem + 1.6435vw, 3.4331rem),
-        // 1000: clamp(1.9438rem, 1.3907rem + 2.7652vw, 3.5338rem),
-        900: clamp(2.3325rem, 1.4058rem + 4.6337vw, 4.9969rem),
-        // 1200: clamp(2.7994rem, 1.3155rem + 7.4196vw, 7.0656rem),
+        800: clamp(2.0738rem, 1.8396rem + 1.1707vw, 2.7469rem),
+        900: clamp(2.4881rem, 2.1594rem + 1.6435vw, 3.4331rem),
+        1000: clamp(1.9438rem, 1.3907rem + 2.7652vw, 3.5338rem),
+        1100: clamp(2.3325rem, 1.4058rem + 4.6337vw, 4.9969rem),
+        1200: clamp(2.7994rem, 1.3155rem + 7.4196vw, 7.0656rem),
     ),
 
     weight: (
