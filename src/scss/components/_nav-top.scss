@@ -82,25 +82,26 @@
 }
 
 .nav-top[data-transform-type="top"] {
-    --transform: translateY(-10%);
+    --transform: translateY(-2%);
 }
 
 .nav-top[data-transform-type="bottom"] {
-    --transform: translateY(10%);
+    --transform: translateY(2%);
 }
 
 .nav-top[data-transform-type="left"] {
-    --transform: translateX6(-10%);
+    --transform: translateX(-2%);
 }
 
 .nav-top[data-transform-type="right"] {
-    --transform: translateX6(10%);
+    --transform: translateX(2%);
 }
 
 .nav-top[reveal] {
     scale: 1;
     opacity: 1;
     transform: translateY(0%);
+    height: 100vh;
 }
 
 
