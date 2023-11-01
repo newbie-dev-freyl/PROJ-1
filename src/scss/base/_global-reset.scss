@@ -59,4 +59,13 @@ body {
     background-color: rgb(213, 205, 213);
     font-family: var(--ff-primary);
     font-size: var(--fs-400);
+    overflow-x: hidden;
+
+    @include breakpoint(tablet) {
+        background: pink;;
+    }
+
+    @include breakpoint(desktop) {
+        background: green;
+    }
 }

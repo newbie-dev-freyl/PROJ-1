@@ -1,13 +1,14 @@
-const toggleMenu = document.querySelector('.toggle-menu');
+const toggle = document.querySelector('.nav-top__toggle');
+const toggleMenu = document.querySelector('.nav-top__toggle + *');
 
-const toggle = document.querySelector('.toggle');
-const toggleIcons = toggle.querySelectorAll('i');
+toggle.addEventListener('click', () => {
+    toggle.toggleAttribute('toggled');
+    toggleMenu.toggleAttribute('reveal');
+})
 
-
-toggleIcons.forEach((icon) => {
-    icon.addEventListener('click', () => {
-        toggleIcons[0].classList.toggle('show-icon');
-        toggleIcons[1].classList.toggle('hide-icon');
-        toggleMenu.classList.toggle('show-menu');
-    })
+window.addEventListener('resize', () => {
+    if (document.documentElement.getBoundingClientRect().width > 600 ) {
+        toggle.removeAttribute('toggled');
+        toggleMenu.removeAttribute('reveal');
+    }
 })

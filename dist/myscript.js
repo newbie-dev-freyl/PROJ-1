@@ -1,2 +1,2 @@
-const toggleMenu=document.querySelector(".toggle-menu"),toggle=document.querySelector(".toggle"),toggleIcons=toggle.querySelectorAll("i");toggleIcons.forEach((e=>{e.addEventListener("click",(()=>{toggleIcons[0].classList.toggle("show-icon"),toggleIcons[1].classList.toggle("hide-icon"),toggleMenu.classList.toggle("show-menu")}))}));
+const toggle=document.querySelector(".nav-top__toggle"),toggleMenu=document.querySelector(".nav-top__toggle + *");toggle.addEventListener("click",(()=>{toggle.toggleAttribute("toggled"),toggleMenu.toggleAttribute("reveal")})),window.addEventListener("resize",(()=>{document.documentElement.getBoundingClientRect().width>600&&(toggle.removeAttribute("toggled"),toggleMenu.removeAttribute("reveal"))}));
 //# sourceMappingURL=myscript.js.map

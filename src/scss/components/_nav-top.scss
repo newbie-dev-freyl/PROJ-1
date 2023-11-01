@@ -1,57 +1,133 @@
 @use '../abstracts/' as *;
 
+// div nav top toggle
+.nav-top__toggle {
+    position: relative;
+    display: grid;
+    font-size: var(--size-5);
+    opacity: 1;
+    cursor: pointer;
+    pointer-events: auto;
+    
+    @include breakpoint(tablet) {
+        opacity: 0;
+        pointer-events: none;
+
+    }
+    
+    >* {
+        transition: transform 300ms, opacity 200ms;
+    }
+
+    >*:first-child {
+        position: absolute;
+        place-self: center;
+        opacity: 0;
+        transform: rotate(0);
+    }
+
+    >*:last-child {
+        opacity: 1;
+        transform: rotate(0deg);
+    }
+
+    
+}
+
+.nav-top__toggle[toggled] {
+
+    >*:first-child {
+        opacity: 1;
+        transform: rotate(90deg);
+    }
+
+    >*:last-child {
+        opacity: 0;
+        transform: rotate(90deg);
+    }
+}
+
+// nav nav-top
 .nav-top {
-    background: #a1b8e1;
+    background: linear-gradient(steelblue, plum);
+    position: absolute;
+    top: 100%;
     width: 100%;
-    padding-block: var(--size-4);
-    padding-inline: var(--size-4);
-    margin-inline: calc((var(--size-6) * -1)/2);
-    z-index: 999;
+    margin-left: calc((var(--size-6)* -1)/2);
+    padding: var(--size-4);
 
     font-family: var(--ff-nav);
     font-size: var(--fs-400);
     text-transform: uppercase;
 
-    @include breakpoint(tablet) { 
-        background: transparent;
-        width: auto;
+    opacity: 0;
+    --scale: ;
+    --transform: ;
+    scale: var(--scale);
+    transform: var(--transform);
+    transition: transform 300ms, scale 300ms, opacity 200ms;
+    
+    @include breakpoint(tablet) {
+      position: relative;  
+      width: auto;
+      margin-left: auto;
+      padding: 0;
+      opacity: 1;
     }
 
+}
 
-    li {
-        
-        &:hover {
-            background:pink;
-        }
-    }
+.nav-top[data-transform-type="scale"] {
+    --scale: .9;
+}
 
-  
-    a {
-        color: currentColor;
-        text-decoration: none;
+.nav-top[data-transform-type="top"] {
+    --transform: translateY(-10%);
+}
 
-        @include flex-base(var(--size-1));
-        justify-content: space-between;
-    }
+.nav-top[data-transform-type="bottom"] {
+    --transform: translateY(10%);
+}
 
-    span {
-        display: grid;
-        place-content: center;
-    }
+.nav-top[data-transform-type="left"] {
+    --transform: translateX6(-10%);
+}
 
-    a[data-toggle="false"] {
-        span {
-            display: none;
-        }
-    }
+.nav-top[data-transform-type="right"] {
+    --transform: translateX6(10%);
+}
+
+.nav-top[reveal] {
+    scale: 1;
+    opacity: 1;
+    transform: translateY(0%);
 }
 
 
-.nav-top__list  {
+// ul nav top list
+.nav-top__list {
+    background: pink;
     display: block;
 
     @include breakpoint(tablet) {
-        @include flex-base(var(--size-4));
-    } 
+        @include flex-base(var(--size-5));
+    }
+
+    a {
+        @include flex-base();
+        justify-content: space-between;
+        text-decoration: none;
+        color: currentColor;  
+    }
+
+    a[data-toggle="false"] > * {
+        display: none;
+    }
 }
 
+
+
+.nav-top__sublist {
+    position: absolute;
+    @include hide-menu();
+}
