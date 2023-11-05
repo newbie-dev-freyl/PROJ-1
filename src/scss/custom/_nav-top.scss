@@ -68,6 +68,7 @@
     transition: transform 300ms, scale 300ms, opacity 200ms;
     
     @include breakpoint(tablet) {
+        background: transparent;
       position: relative;  
       width: auto;
       margin-left: auto;
@@ -97,7 +98,7 @@
     --transform: translateX(2%);
 }
 
-.nav-top[reveal] {
+.nav-top[show] {
     scale: 1;
     opacity: 1;
     transform: translateY(0%);
@@ -107,28 +108,11 @@
 
 // ul nav top list
 .nav-top__list {
-    background: pink;
-    display: block;
-
-    @include breakpoint(tablet) {
-        @include flex-base(var(--size-5));
-    }
-
-    a {
-        @include flex-base();
-        justify-content: space-between;
-        text-decoration: none;
-        color: currentColor;  
-    }
-
-    a[data-toggle="false"] > * {
-        display: none;
-    }
+    
 }
 
 
 
 .nav-top__sublist {
-    position: absolute;
-    @include hide-menu();
+    
 }

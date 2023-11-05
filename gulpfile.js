@@ -20,6 +20,12 @@ function jsTask (){
     .pipe(dest('dist', { sourcemaps: '.' }));
 }
 
+function jsTask2 (){
+    return src('src/js/onload.js', { sourcemaps: true })
+    .pipe(terser())
+    .pipe(dest('dist', { sourcemaps: '.' }));
+}
+
 // browsersync task
 function browserSyncServer(done) {
     browserSync.init({
@@ -38,7 +44,7 @@ function browserSyncReload(done) {
 // watch task
 function watchTask(){
     watch('*.html', browserSyncReload);
-    watch(['src/scss/**/*.scss', 'src/js/**/*.js'], series(scssTask, jsTask, browserSyncReload));
+    watch(['src/scss/**/*.scss', 'src/js/**/*.js'], series(scssTask, jsTask, jsTask2, browserSyncReload));
 }
 
 
@@ -46,6 +52,7 @@ function watchTask(){
 exports.default = series(
     scssTask,
     jsTask,
+    jsTask2,
     browserSyncServer,
     watchTask
 );
