@@ -20,6 +20,7 @@
 }
 
 .header__inner {
+    background: gold;
     @include flex-base();
     justify-content: space-between;
 }
