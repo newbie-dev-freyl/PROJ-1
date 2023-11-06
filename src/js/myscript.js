@@ -35,21 +35,17 @@ function fn_toggle_submenu() {
             if (toggle.hasAttribute('toggle-menu')) {
                 toggle.nextElementSibling.setAttribute('show','');
             } else if (toggle.hasAttribute('back-button')) {
-                toggle.parentElement.parentElement.removeAttribute('show','');
+                toggle.parentElement.parentElement.removeAttribute('show');
             } else {
                 navTopSubMenuAll.forEach(submenu => {
-                    submenu.removeAttribute('show','');
+                    submenu.removeAttribute('show');
                 })
             }
         })
     })
 }
 
-function fn_toggle_submenu_disabled() {
-    navTopSubMenuToggleAll.forEach(toggle => {
-            toggle.setAttribute('disabled', '');
-    })
-}
+
 
 function fn_remove_show(el) {
     el.forEach(submenu => {
@@ -76,13 +72,13 @@ window.addEventListener('resize', () => {
 window.addEventListener('load', () => {
 
     if (document.documentElement.getBoundingClientRect().width > 736 ) {
-
+        fn_hide_nav_top();
+        fn_remove_show(navTopSubMenuAll);
     } else {
         fn_toggle_submenu();
     }
 
-
-    fn_toggle_submenu();
+    
     navTop.setAttribute('data-transform-type', 'right');
     navTopSubMenuAll.forEach(submenu => {
         let text = submenu.previousElementSibling.text;
