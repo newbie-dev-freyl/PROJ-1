@@ -111,12 +111,10 @@
 .nav-top__menu {
     position: relative;
     flex-direction: column;
-    height: inherit;
 
     @include breakpoint(tablet) {
         @include flex-base(var(--size-3));
         flex-direction: row;
-        height: auto;
     }
 
     a {
@@ -127,7 +125,6 @@
         text-decoration: none;
         white-space: nowrap; 
     }
- 
 
     a:hover {
         background: plum;
@@ -179,6 +176,7 @@
         transform: translateX(0%);
     }
 }
+
 
 // ul nav top sub menu
 .nav-top__submenu {
