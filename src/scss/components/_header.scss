@@ -4,8 +4,6 @@
     --pos: relative;
     background: plum;
     position: var(--pos);
-    padding-block: var(--size-2);
-
     img {
         @include square(var(--size-7));
         object-fit: contain;
