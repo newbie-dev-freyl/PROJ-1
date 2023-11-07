@@ -11,6 +11,7 @@ navTopToggle.onclick = function () {
 
 function fn_screen_width(size) {
     if (document.documentElement.getBoundingClientRect().width > size) {
+        navTop.removeAttribute('show');
         navTopBackButton.forEach(button => {
             button.parentElement.style.display = "none"; 
         })
@@ -19,7 +20,7 @@ function fn_screen_width(size) {
 
 window.onload = function () {
     navTop.setAttribute('data-transform-type', 'bottom');
-    fn_screen_width(736);
+    fn_screen_width(736); 
 }
 
 window.onresize = function () {
