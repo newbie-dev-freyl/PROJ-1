@@ -306,6 +306,8 @@ body {
 .nav-top {
   background: linear-gradient(steelblue, plum);
   position: absolute;
+  opacity: 0;
+  pointer-events: none;
   top: 100%;
   width: 100%;
   margin-left: calc(var(--size-6) * -1 / 2);
@@ -313,7 +315,6 @@ body {
   font-family: var(--ff-nav);
   font-size: var(--fs-400);
   text-transform: uppercase;
-  opacity: 0;
   --scale: ;
   --transform: ;
   scale: var(--scale);
@@ -324,10 +325,11 @@ body {
   .nav-top {
     background: red;
     position: relative;
+    opacity: 1;
+    pointer-events: auto;
     width: auto;
     margin-left: auto;
     padding: 0;
-    opacity: 1;
     transform: none;
   }
 }
@@ -353,8 +355,9 @@ body {
 }
 
 .nav-top[show] {
-  scale: 1;
   opacity: 1;
+  pointer-events: auto;
+  scale: 1;
   transform: translateY(0%);
   height: 100vh;
 }
@@ -362,14 +365,6 @@ body {
 .nav-top__menu {
   position: relative;
   flex-direction: column;
-}
-@media screen and (min-width: 46em) {
-  .nav-top__menu {
-    display: flex;
-    align-items: center;
-    gap: var(--size-3);
-    flex-direction: row;
-  }
 }
 .nav-top__menu a {
   display: flex;
@@ -381,57 +376,85 @@ body {
   white-space: nowrap;
 }
 .nav-top__menu a:hover {
-  background: plum;
+  background: palegoldenrod;
 }
-.nav-top__menu li {
-  position: relative;
+.nav-top__menu li:hover {
+  background: none;
 }
-.nav-top__menu > li {
-  height: var(--size-7);
-  display: grid;
-}
-.nav-top__menu > li > ul {
-  opacity: 0;
-  pointer-events: none;
-  top: 100%;
-  transform: translateY(10%);
-}
-.nav-top__menu > li:hover > ul {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateY(0);
-}
-.nav-top__menu > li[submenu-left] > ul {
-  left: 0;
-}
-.nav-top__menu > li[submenu-right] > ul {
-  right: 0;
-}
-.nav-top__menu li[submenu-left] * > a + * {
-  left: 100%;
-  transform: translateX(-10%);
-}
-.nav-top__menu li[submenu-left] *:hover > a + * {
-  transform: translateX(0%);
-}
-.nav-top__menu li[submenu-right] * > a + * {
-  right: 100%;
-  transform: translateX(10%);
-}
-.nav-top__menu li[submenu-right] *:hover > a + * {
-  transform: translateX(0%);
+@media screen and (min-width: 46em) {
+  .nav-top__menu {
+    display: flex;
+    align-items: center;
+    gap: var(--size-3);
+    flex-direction: row;
+  }
+  .nav-top__menu a:hover {
+    background: none;
+  }
+  .nav-top__menu li:hover {
+    background: rgb(155, 105, 155);
+  }
+  .nav-top__menu li {
+    position: relative;
+  }
+  .nav-top__menu > li {
+    height: var(--size-7);
+    display: grid;
+  }
+  .nav-top__menu > li > ul {
+    opacity: 0;
+    pointer-events: none;
+    top: 100%;
+    transform: translateY(10%);
+  }
+  .nav-top__menu > li:hover > ul {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+  .nav-top__menu > li[submenu-left] > ul {
+    left: 0;
+  }
+  .nav-top__menu > li[submenu-right] > ul {
+    right: 0;
+  }
+  .nav-top__menu li[submenu-left] * > a + * {
+    left: 100%;
+    transform: translateX(-10%);
+  }
+  .nav-top__menu li[submenu-left] *:hover > a + * {
+    transform: translateX(0%);
+  }
+  .nav-top__menu li[submenu-right] * > a + * {
+    right: 100%;
+    transform: translateX(10%);
+  }
+  .nav-top__menu li[submenu-right] * > a {
+    direction: rtl;
+  }
+  .nav-top__menu li[submenu-right] * > a > * {
+    transform: rotate(180deg);
+  }
+  .nav-top__menu li[submenu-right] *:hover > a + * {
+    transform: translateX(0%);
+  }
 }
 
 .nav-top__submenu {
-  background: pink;
+  background: royalblue;
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  top: 0;
   min-width: 100%;
+  height: 100vh;
+  transform: translateX(100%);
   transition: transform 300ms, opacity 300ms;
 }
 @media screen and (min-width: 46em) {
   .nav-top__submenu {
-    --pos: absolute;
-    position: var(--pos);
-    min-width: 10rem;
+    min-width: calc(var(--size-8) * 2);
+    height: auto;
     border-radius: var(--size-1);
     padding-block: var(--size-1);
   }
@@ -452,5 +475,11 @@ body {
     opacity: 1;
     pointer-events: auto;
   }
+}
+
+.nav-top__submenu[show] {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0%);
 }
 /*# sourceMappingURL=mystyle.css.map */

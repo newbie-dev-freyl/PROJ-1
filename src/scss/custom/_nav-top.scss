@@ -51,6 +51,7 @@
 .nav-top {
     background: linear-gradient(steelblue, plum);
     position: absolute;
+    @include hide-menu();
     top: 100%;
     width: 100%;
     margin-left: calc((var(--size-6)* -1)/2);
@@ -60,7 +61,6 @@
     font-size: var(--fs-400);
     text-transform: uppercase;
 
-    opacity: 0;
     --scale: ;
     --transform: ;
     scale: var(--scale);
@@ -70,10 +70,10 @@
     @include breakpoint(tablet) {
         background: red;
         position: relative;
+        @include show-menu();
         width: auto;
         margin-left: auto;
         padding: 0;
-        opacity: 1;
         transform: none;
     }
 
@@ -100,8 +100,8 @@
 }
 
 .nav-top[show] {
+    @include show-menu();
     scale: 1;
-    opacity: 1;
     transform: translateY(0%);
     height: 100vh;
 }
@@ -111,14 +111,8 @@
 .nav-top__menu {
     position: relative;
     flex-direction: column;
-
-    @include breakpoint(tablet) {
-        @include flex-base(var(--size-3));
-        flex-direction: row;
-    }
-
+    
     a {
-        // background: pink;
         @include flex-base();
         justify-content: space-between;
         color: currentColor;
@@ -127,72 +121,98 @@
     }
 
     a:hover {
-        background: plum;
+        background: palegoldenrod;
     }
 
-    li {
-        position: relative;
+    li:hover {
+        background: none;
     }
 
-    >li {
-        height: var(--size-7);
-        display: grid;
+    @include breakpoint(tablet) {
+        @include flex-base(var(--size-3));
+        flex-direction: row;
+
+        a:hover {
+            background: none;
+        }
+
+        li:hover {
+            background: rgb(155, 105, 155);
+        }
+    
+        li {
+            position: relative;
+        }
+    
+        >li {
+            height: var(--size-7);
+            display: grid;
+        }
+    
+        >li >ul {
+            @include hide-menu();
+            top: 100%;   
+            transform: translateY(10%);
+        }
+    
+        >li:hover >ul {
+            @include show-menu();
+            transform: translateY(0);   
+        }
+    
+        >li[submenu-left] > ul {
+            left: 0;
+        }
+    
+        >li[submenu-right] > ul {
+            right: 0;
+        }
+    
+        li[submenu-left] *> a +* {
+            left: 100%;
+            transform: translateX(-10%);
+        }
+    
+        li[submenu-left] *:hover> a +* {
+            transform: translateX(0%);
+        }
+    
+        li[submenu-right] *> a +* {
+            right: 100%;
+            transform: translateX(10%);
+        }
+    
+        li[submenu-right] *> a {
+            direction: rtl;
+        }
+    
+        li[submenu-right] *> a >* {
+            transform: rotate(180deg);
+        }
+    
+        li[submenu-right] *:hover> a +* {
+            transform: translateX(0%);
+        }
     }
 
-    >li >ul {
-        @include hide-menu();
-        top: 100%;   
-        transform: translateY(10%);
-    }
-
-    >li:hover >ul {
-        @include show-menu();
-        transform: translateY(0);   
-    }
-
-    >li[submenu-left] > ul {
-        left: 0;
-    }
-
-    >li[submenu-right] > ul {
-        right: 0;
-    }
-
-    li[submenu-left] *> a +* {
-        left: 100%;
-        transform: translateX(-10%);
-    }
-
-    li[submenu-left] *:hover> a +* {
-        transform: translateX(0%);
-    }
-
-    li[submenu-right] *> a +* {
-        right: 100%;
-        transform: translateX(10%);
-    }
-
-    li[submenu-right] *:hover> a +* {
-        transform: translateX(0%);
-    }
 }
 
 
 // ul nav top sub menu
 .nav-top__submenu {
-    background: pink;
-    // @include hide-menu();
+    background: royalblue;
+    position: absolute;
+    @include hide-menu();
+    top: 0;
     min-width: 100%;
+    height: 100vh;
+    transform: translateX(100%);
     transition: transform 300ms, opacity 300ms;
 
-    // > li:hover> a +* {
-    //     @include hide-menu();
-    // }
     
     @include breakpoint(tablet) {
-        --pos: absolute;
-        position: var(--pos);
-        min-width: 10rem;
+        min-width: calc(var(--size-8) * 2);
+        height: auto;
         border-radius: var(--size-1);
         padding-block: var(--size-1);
 
@@ -215,6 +235,11 @@
             @include show-menu();
         }
     }
+}
+
+.nav-top__submenu[show] {
+    @include show-menu();
+    transform: translateX(0%);
 }
 
 .nav-top__submenu[data-transform-type=push-menu] {
