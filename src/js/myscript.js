@@ -53,7 +53,7 @@ function fn_screen_width(size) {
 }
 
 window.onload = function () {
-    navTop.setAttribute('data-transform-type', 'bottom');
+    navTop.setAttribute('data-transform-type', 'right');
     fn_screen_width(736);
 }
 
