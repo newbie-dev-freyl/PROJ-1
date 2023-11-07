@@ -76,7 +76,6 @@
         padding: 0;
         transform: none;
     }
-
 }
 
 .nav-top[data-transform-type="scale"] {
@@ -243,9 +242,9 @@
 }
 
 .nav-top__submenu[data-transform-type=push-menu] {
-   @include breakpoint(tablet) {
+    @include breakpoint(tablet) {
     
-   }
+    }
 }
 
 

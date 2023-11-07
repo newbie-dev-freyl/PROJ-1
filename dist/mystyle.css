@@ -323,11 +323,11 @@ body {
 }
 @media screen and (min-width: 46em) {
   .nav-top {
-    background: red;
     position: relative;
     opacity: 1;
     pointer-events: auto;
     width: auto;
+    height: auto;
     margin-left: auto;
     padding: 0;
     transform: none;
@@ -366,6 +366,7 @@ body {
   position: relative;
   flex-direction: column;
 }
+<<<<<<< HEAD
 .nav-top__menu a {
   display: flex;
   align-items: center;
@@ -381,6 +382,8 @@ body {
 .nav-top__menu li:hover {
   background: none;
 }
+=======
+>>>>>>> f142759cffe529f944e39e2c7ae5b21d1daeb953
 @media screen and (min-width: 46em) {
   .nav-top__menu {
     display: flex;
@@ -388,11 +391,25 @@ body {
     gap: var(--size-3);
     flex-direction: row;
   }
+<<<<<<< HEAD
   .nav-top__menu a:hover {
     background: none;
   }
   .nav-top__menu li:hover {
     background: rgb(155, 105, 155);
+=======
+  .nav-top__menu a {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    justify-content: space-between;
+    color: currentColor;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .nav-top__menu a:hover {
+    background: plum;
+>>>>>>> f142759cffe529f944e39e2c7ae5b21d1daeb953
   }
   .nav-top__menu li {
     position: relative;
@@ -429,18 +446,22 @@ body {
     right: 100%;
     transform: translateX(10%);
   }
+<<<<<<< HEAD
   .nav-top__menu li[submenu-right] * > a {
     direction: rtl;
   }
   .nav-top__menu li[submenu-right] * > a > * {
     transform: rotate(180deg);
   }
+=======
+>>>>>>> f142759cffe529f944e39e2c7ae5b21d1daeb953
   .nav-top__menu li[submenu-right] *:hover > a + * {
     transform: translateX(0%);
   }
 }
 
 .nav-top__submenu {
+<<<<<<< HEAD
   background: royalblue;
   position: absolute;
   opacity: 0;
@@ -449,11 +470,23 @@ body {
   min-width: 100%;
   height: 100vh;
   transform: translateX(100%);
+=======
+  position: absolute;
+  background: pink;
+  min-width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 100%;
+>>>>>>> f142759cffe529f944e39e2c7ae5b21d1daeb953
   transition: transform 300ms, opacity 300ms;
 }
 @media screen and (min-width: 46em) {
   .nav-top__submenu {
+<<<<<<< HEAD
     min-width: calc(var(--size-8) * 2);
+=======
+    min-width: 10rem;
+>>>>>>> f142759cffe529f944e39e2c7ae5b21d1daeb953
     height: auto;
     border-radius: var(--size-1);
     padding-block: var(--size-1);
