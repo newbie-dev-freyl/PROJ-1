@@ -397,6 +397,7 @@ body {
     align-items: center;
     gap: var(--size-3);
     flex-direction: row;
+    overflow: visible;
   }
   .nav-top__menu a:hover {
     background: none;
@@ -461,12 +462,9 @@ body {
   transform: translateX(100%);
   transition: transform 300ms, opacity 300ms;
 }
-.nav-top__submenu > li {
-  padding-inline: var(--size-1);
-}
 .nav-top__submenu > li > a {
   padding-block: var(--size-1);
-  padding-inline: var(--size-1);
+  padding-inline: var(--size-2);
 }
 @media screen and (min-width: 46em) {
   .nav-top__submenu {
