@@ -21,4 +21,9 @@
     background: gold;
     @include flex-base();
     justify-content: space-between;
+    padding-block: var(--size-2);
+
+    @include breakpoint(tablet) {
+        padding: 0;
+    }
 }

@@ -111,6 +111,7 @@
 .nav-top__menu {
     position: relative;
     flex-direction: column;
+    overflow: hidden;
     
     a {
         @include flex-base();
@@ -247,8 +248,8 @@
 }
 
 .nav-top__submenu[data-transform-type=push-menu] {
-   @include breakpoint(tablet) {
-   }
+    @include breakpoint(tablet) {
+    }
 }
 
 
