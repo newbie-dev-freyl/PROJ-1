@@ -364,7 +364,7 @@ body {
 .nav-top__menu a {
   display: flex;
   align-items: center;
-  gap: 0;
+  gap: var(--size-1);
   justify-content: space-between;
   text-decoration: none;
   color: currentColor;

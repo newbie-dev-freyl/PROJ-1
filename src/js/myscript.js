@@ -15,6 +15,14 @@ function fn_setup() {
             link.querySelector('[title]').innerHTML = text;
         }
     })
+
+    navTopSubMenuLinkAll.forEach(link => {
+        if (link.hasAttribute('toggle-menu') || link.hasAttribute('back-button')) {
+            return;
+        } else {
+            link.querySelector('i').style.display = "none";
+        }
+    })
 }
 
 function fn_hide_navtop() {
@@ -41,6 +49,7 @@ function fn_toggle_navtop_submenu() {
             } else if (link.hasAttribute('back-button')) {
                 link.parentElement.parentElement.removeAttribute('show')
             } else {
+                fn_hide_navtop();
                 fn_hide_navtop_submenu();
             }
         }

@@ -103,7 +103,7 @@
     overflow: hidden;
 
     a { 
-        @include flex-base();
+        @include flex-base(var(--size-1));
         justify-content: space-between;
         text-decoration: none;
         color: currentColor;
