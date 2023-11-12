@@ -31,12 +31,6 @@ function fn_hide_navtop_submenu() {
     })
 }
 
-function fn_toggle_disable_effect() {
-    let resizeTimer;
-    document.body.setAttribute('effect-disabled', '')
-
-}
-
 function fn_toggle_navtop_submenu() {
     navTopSubMenuLinkAll.forEach(link => {
         link.onclick = function () {
@@ -79,10 +73,12 @@ window.onload = function () {
     fn_screen_size(736);
 }
 
-// RESIZE EVENT =================================================================
 window.onresize = function () {
     fn_disable_effect(200);
     fn_screen_size(736);
 }
+
+
+
 
 
