@@ -37,7 +37,7 @@
 
 // nav nav-top
 .nav-top {
-    background: olive;
+    background: gray;
     position: absolute;
     top: 100%;
     width: 100%;
@@ -95,7 +95,6 @@
 // ul nav top menu
 .nav-top__menu {
     position: relative;
-    background: gray;
     flex-direction: column;
     height: inherit;
     overflow: hidden;
@@ -175,7 +174,7 @@
 
 // ul nav top sub menu
 .nav-top__submenu {
-    background: pink;
+    background: gray;
     position: absolute;
     @include hide-menu();
     top: 0;

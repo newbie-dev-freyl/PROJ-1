@@ -93,6 +93,9 @@ body {
   background: plum;
   position: var(--pos);
 }
+.header .brand-logo {
+  background: linear-gradient(royalblue, plum, orange);
+}
 .header img {
   width: var(--size-7);
   height: var(--size-7);
@@ -107,11 +110,16 @@ body {
 }
 
 .header__inner {
-  background: gold;
   display: flex;
   align-items: center;
   gap: 0;
   justify-content: space-between;
+  padding-block: var(--size-2);
+}
+@media screen and (min-width: 46em) {
+  .header__inner {
+    padding: 0;
+  }
 }
 
 .even-columns {
@@ -293,7 +301,7 @@ body {
 }
 
 .nav-top {
-  background: olive;
+  background: gray;
   position: absolute;
   top: 100%;
   width: 100%;
@@ -351,7 +359,6 @@ body {
 
 .nav-top__menu {
   position: relative;
-  background: gray;
   flex-direction: column;
   height: inherit;
   overflow: hidden;
@@ -422,7 +429,7 @@ body {
 }
 
 .nav-top__submenu {
-  background: pink;
+  background: gray;
   position: absolute;
   opacity: 0;
   pointer-events: none;

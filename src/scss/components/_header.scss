@@ -4,6 +4,11 @@
     --pos: relative;
     background: plum;
     position: var(--pos);
+
+    .brand-logo {
+        background: linear-gradient(royalblue, plum, orange,);
+    }
+
     img {
         @include square(var(--size-7));
         object-fit: contain;
@@ -18,7 +23,11 @@
 }
 
 .header__inner {
-    background: gold;
     @include flex-base();
     justify-content: space-between;
+    padding-block: var(--size-2);
+
+    @include breakpoint(tablet) {
+        padding: 0;
+    }
 }
