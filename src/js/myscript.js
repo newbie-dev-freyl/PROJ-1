@@ -3,8 +3,10 @@ const navTop = document.querySelector('.nav-top');
 const navTopSubMenuAll = document.querySelectorAll('.nav-top__submenu');
 const navTopSubMenuLinkAll = document.querySelectorAll('.nav-top__menu a');
 
+// FUNCTIONS
+
 function fn_setup() {
-    navTop.setAttribute('data-transform-type', 'right');
+    navTop.setAttribute('data-transform-type', 'bottom');
 
     let text;
     navTopSubMenuLinkAll.forEach(link => {
@@ -48,6 +50,7 @@ function fn_toggle_navtop_submenu() {
 function fn_screen_size(size) {
     if (document.documentElement.getBoundingClientRect().width > size) {
         fn_hide_navtop();
+        fn_hide_navtop_submenu();
     } else {
         fn_toggle_navtop_submenu();
     }
@@ -62,6 +65,7 @@ function fn_disable_effect(secs) {
     }, secs)
 }
 
+// EVENTS
 
 navTopToggleMenu.onclick = function () {
     fn_show_navtop()
