@@ -29,3 +29,8 @@
     opacity: 1;
     pointer-events: auto;
 }
+
+@mixin psuedo-base($pos) {
+    position: $pos;
+    content: '';
+}

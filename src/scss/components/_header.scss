@@ -11,7 +11,7 @@
     }
 
     img {
-        @include square(var(--size-7));
+        @include square(var(--size-6));
         object-fit: contain;
         aspect-ratio: 1/1;
         overflow: hidden;
